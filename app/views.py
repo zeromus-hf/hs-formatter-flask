@@ -6,6 +6,7 @@ from flask import render_template, request
 def index():
     output = ''
     input  = ''
+    stdout = ''
     errors = []
 
     target = app.config['target_script']
@@ -17,9 +18,10 @@ def index():
             input  = request.form['input']
 
         try:
-            output = target.execute(input)
+            stdout, output = target.execute(input)
         except Exception as e:
             errors.append('Error {}'.format(e))
+            raise
 
-    return render_template('index.html', errors=errors, input=input, output=output)
+    return render_template('index.html', errors=errors, input=input, stdout=stdout, output=output)
 

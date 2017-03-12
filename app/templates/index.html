@@ -44,7 +44,20 @@
 							<label>Output</label>
 						</div>
 						<div class="panel-body">
-							<textarea readonly class="input-box">{{ output|e }}</textarea>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<textarea readonly class="input-box">{{ output|e }}</textarea>
+									</div>
+								</div>
+								<div class="row">
+									{% if stdout %}
+										<div class="col-sm-12">
+											<pre>{{ stdout|e }}</pre>
+										</div>
+									{% endif %}
+								</div>
+							</div>
 						</div>
 						<div class="panel-footer">
 							<div class="btn btn-primary">Save</div>
