@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<title>
+			Subtitle Formatter
+		</title>
+
+		<link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="static/style.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="page-header">
+				Subtitle Formatter
+			</div>
+
+			{% for message in errors %}
+				<div class="alert alert-danger">
+					{{ message|e }}
+				</div>
+			{% endfor %}
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<label>Input</label>
+						</div>
+						<div class="panel-body">
+							<textarea class="input-box">{{ input|e }}</textarea>
+						</div>
+						<div class="panel-footer">
+							<div id="submit-button" class="btn btn-primary">Submit</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<label>Output</label>
+						</div>
+						<div class="panel-body">
+							<textarea readonly class="input-box">{{ output|e }}</textarea>
+						</div>
+						<div class="panel-footer">
+							<div class="btn btn-primary">Save</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<form action='index' method='POST'>
+			<input name="input" type="hidden">
+		</form>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="static/bootstrap/js/bootstrap.min.js"></script>
+
+		<script>
+			! function ($) {
+
+				$('#submit-button').on('click', function () {
+					$('form > input').val($('.input-box').val());
+
+					$('form').submit();
+				});
+
+			} (jQuery);
+		</script>
+	</body>
+</html>
+
