@@ -11,7 +11,6 @@ def index():
     target = app.config['target_script']
 
     if request.method == 'POST':
-        print request.form
         if request.form.get('input') is None:
             print 'No data!'
         else:
