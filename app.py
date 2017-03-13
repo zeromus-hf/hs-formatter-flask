@@ -1,5 +1,13 @@
-from app import app
-from flask import render_template, request
+#!flask/bin/python
+from flask import render_template, request, Flask
+import importlib
+
+app = Flask(__name__)
+
+app.config.update({
+    'target_script' : importlib.import_module('target_script')
+})
+
 
 @app.route('/')
 @app.route('/index', methods=['POST','GET'])
@@ -25,3 +33,5 @@ def index():
 
     return render_template('index.html', errors=errors, input=input, stdout=stdout, output=output)
 
+
+app.run(debug=True, host='0.0.0.0', port=9999)
