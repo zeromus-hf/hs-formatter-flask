@@ -7,3 +7,5 @@ and [here](https://www.digitalocean.com/community/tutorials/understanding-nginx-
 
 Also I modified `target_source/main.py` to load the script from an absolute path, may want
 to make that configurable sometime.
+
+The file /etc/uwsgi/vassals/app_uwsgi.ini should be a symlink to /var/www/app_uwsgi.ini
