@@ -33,5 +33,5 @@ def index():
 
     return render_template('index.html', errors=errors, input=input, stdout=stdout, output=output)
 
-
-app.run(debug=True, host='0.0.0.0', port=9999)
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=9999)
