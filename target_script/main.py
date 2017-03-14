@@ -3,7 +3,7 @@ import sys
 from io import StringIO, TextIOWrapper
 from StringIO import StringIO as old_StringIO
 
-entry_point = imp.load_source("sub_format", "target_script/hs-sub-formatter/sub_format.py")
+entry_point = imp.load_source("sub_format", "/var/www/app/hs-formatter-flask/target_script/hs-sub-formatter/sub_format.py")
 
 
 class UnclosableStringIO(StringIO):
